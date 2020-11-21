@@ -91,7 +91,18 @@ class MainActivity : AppCompatActivity() {
         //imageView.setImageResource(R.drawable.result1)
     }
 
+    //TODO　menu.xmlで記述したおみくじアプリについての箇所をクリックした際に明示的IntentでAboutActivityを呼び出す。しかし、呼び出せずエミュレータが落ちてしまう
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
+        if (item.itemId == R.id.item1){
+            val intent = Intent(this,OmikujiPreferenceActivity::class.java)
+            startActivity(intent)
+        }else{
+            val intent = Intent(this,AboutActivity::class.java)
+            startActivity(intent)
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
     fun drawResult(){
         omikujiNumber = omikujiBox.number
